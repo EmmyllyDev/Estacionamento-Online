@@ -1,0 +1,184 @@
+/* Estilos customizados para a tabela de preços */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+}
+
+.pricing-table-container {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 60px); /* Ajusta para a altura da navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pricing-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.pricing-header h1 {
+    color: #2F4F4F; /* Cor principal */
+    font-weight: 600;
+    font-size: 2.8em;
+    margin-bottom: 15px;
+}
+
+.pricing-header p {
+    color: #6c757d;
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card .card-body h2 small {
+    font-size: 0.5em;
+    font-weight: 400;
+    color: #6c757d;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.pricing-card ul li {
+    margin-bottom: 15px;
+    color: #495057;
+    font-size: 1.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pricing-card ul li i {
+    color: #28a745; /* Verde para ícones de check */
+    margin-right: 10px;
+}
+
+/* Botões personalizados */
+.pricing-card .btn {
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary-custom {
+    background-color: #2F4F4F;
+    border-color: #2F4F4F;
+    color: white;
+}
+
+.btn-primary-custom:hover {
+    background-color: #1a3333;
+    border-color: #1a3333;
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary-custom {
+    color: #2F4F4F;
+    border-color: #2F4F4F;
+    background-color: transparent;
+}
+
+.btn-outline-primary-custom:hover {
+    background-color: #2F4F4F;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Card em destaque (dourado) */
+.card-highlight {
+    border: 3px solid #ffc107;
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.2);
+}
+
+.card-highlight .card-header {
+    background-color: #ffc107;
+    color: #2F4F4F;
+}
+
+.card-highlight .btn-primary-custom {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #2F4F4F;
+}
+
+.card-highlight .btn-primary-custom:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+}
+
+/* Tabs (Mensalistas / Avulsos) */
+.nav-pills .nav-link {
+    color: #2F4F4F;
+    background-color: #e9ecef;
+    margin: 0 5px;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:hover {
+    color: #000;
+    background-color: #ffc107; /* Amarelo vibrante */
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .pricing-header h1 {
+        font-size: 2.2em;
+    }
+
+    .pricing-header p {
+        font-size: 1em;
+    }
+
+    .pricing-card .card-body {
+        padding: 30px 20px;
+    }
+
+    .pricing-card .card-body h2 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 576px) {
+    .pricing-table-container {
+        padding: 40px 15px;
+    }
+
+    .pricing-card {
+        margin-bottom: 20px;
+    }
+
+    .nav-pills {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-pills .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+}

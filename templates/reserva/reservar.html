@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservar Vaga - MyParking{% endblock %}
+
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow-lg rounded">
+    <div class="card-header text-white" style="background-color: #3d5d50;">
+      <h4 class="mb-0">Formulário de Reserva</h4>
+    </div>
+    <div class="card-body">
+      <form method="POST">
+        {% csrf_token %}
+        
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="{{ form.vaga.id_for_label }}" class="form-label">Selecione a Vaga</label>
+            {{ form.vaga }}
+          </div>
+          <div class="col-md-6">
+            <label for="{{ form.data_prevista.id_for_label }}" class="form-label">Data da Reserva</label>
+            {{ form.data_prevista }}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="{{ form.hora_entrada.id_for_label }}" class="form-label">Hora de Entrada</label>
+            {{ form.hora_entrada }}
+          </div>
+          <div class="col-md-6">
+            <label for="{{ form.hora_saida.id_for_label }}" class="form-label">Hora de Saída</label>
+            {{ form.hora_saida }}
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="{{ form.email.id_for_label }}" class="form-label">E-mail</label>
+            {{ form.email }}
+          </div>
+          <div class="col-md-6">
+            <label for="{{ form.telefone.id_for_label }}" class="form-label">Telefone</label>
+            {{ form.telefone }}
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+          <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a>
+          <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

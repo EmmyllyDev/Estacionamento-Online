@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Redefinir Senha{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/custom-login.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container d-flex justify-content-center align-items-center min-vh-100 py-4">
+    <div class="card shadow-lg p-4 p-md-5 login-box-custom"> 
+      <div class="card-body text-center"> 
+        <h2><strong>Redefina sua senha</strong></h2>
+        <p>Informe o seu usuário e defina uma nova senha para sua conta MyParking</p>
+
+        <form method="POST" class="needs-validation" novalidate>
+          {% csrf_token %}
+
+          <!-- Campo para o nome de usuário -->
+          <div class="input-group">
+            <label><i class="fa fa-user"></i> Nome de usuário</label>
+            <input type="text" name="usuario" placeholder="Seu nome de usuário" required>
+          </div>
+
+          <div class="input-group">
+            <label><i class="fa fa-lock"></i> Nova senha</label>
+            <input type="password" name="nova_senha" placeholder="Sua nova senha" required>
+          </div>
+
+          <div class="input-group">
+            <label><i class="fa fa-lock"></i> Confirmar nova senha</label>
+            <input type="password" name="confirmar_senha" placeholder="Confirme sua nova senha" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 mt-3">Salvar</button>
+
+          <!-- Botão Voltar -->
+          <a href="{% url 'login' %}" class="btn btn-secondary w-100 mt-2">Voltar</a>
+        </form>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

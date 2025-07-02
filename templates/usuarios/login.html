@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessar MyParking - Seu Estacionamento Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/custom-login.css' %}">
+</head>
+<body class="d-flex flex-column justify-content-center align-items-center min-vh-100 bg-gradient-blue">
+
+    {% block content %}
+    <div class="container d-flex justify-content-center align-items-center min-vh-100 py-4">
+        <div class="card shadow-lg p-4 p-md-5 login-box-custom"> 
+            <div class="card-body text-center">
+                <h1 class="card-title fw-bold text-primary mb-2">Bem-vindo(a) de volta!</h1>
+                <p class="card-subtitle text-muted mb-4">Acesse sua conta MyParking</p>
+
+                {% if error %}
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <div>
+                            {{ error }}
+                        </div>
+                    </div>
+                {% endif %}
+
+                <form method="POST" class="needs-validation" novalidate> 
+                    {% csrf_token %}
+                    <div class="mb-3 text-start"> 
+                        <label for="username" class="form-label d-block text-center mb-2">
+                            <i class="fas fa-user me-2"></i> Usuário
+                        </label>
+                        <input type="text" class="form-control form-control-lg" name="username" id="username" placeholder="Seu nome de usuário ou e-mail" required>
+                        <div class="invalid-feedback text-center">
+                            Por favor, insira seu nome de usuário.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 text-start">
+                        <label for="password" class="form-label d-block text-center mb-2">
+                            <i class="fas fa-lock me-2"></i> Senha
+                        </label>
+                        <input type="password" class="form-control form-control-lg" name="password" id="password" placeholder="Sua senha secreta" required>
+                        <div class="invalid-feedback text-center">
+                            Por favor, insira sua senha.
+                        </div>
+                    </div>
+
+                    <div class="text-end mb-4">     
+                        <a href="{% url 'password_reset' %}" class="text-decoration-none text-primary fw-bold small">Esqueci minha senha</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg w-100 mb-3 fw-bold custom-btn-primary">Entrar</button>
+                </form>
+                <p class="text-muted
+                mb-0">Não tem uma conta? <a href="{% url 'cadastro' %}" class="text-primary fw-bold">Crie uma agora</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock %}
+
+
+    {# Script para validação do Bootstrap #}
+    <script>
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</body>
+</html>

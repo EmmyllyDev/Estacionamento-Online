@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<!-- Página Inicial -->
+	<div class="hero">
+		<div class="container">
+			<div class="row justify-content-between">
+				<div class="col-lg-5">
+					<div class="intro-excerpt">
+						<h1><span class="d-block">Seu estacionamento na palma da mão</span></h1>
+						<p class="mb-4">No MyParking, você reserva sua vaga com antecedência, acompanha entradas e
+							saídas em tempo real e ainda escolhe planos mensais pensados para quem valoriza tempo,
+							praticidade e economia.</p>
+						<p>
+							<a href="{% url 'planos:solicitar_plano'%}" class="btn btn-secondary me-2">Seja Mensalista</a>
+							<a href="{% url 'reservar' %}" class="btn btn-white-outline">Reserve sua vaga</a>
+						</p>
+					</div>
+				</div>
+					<div class="hero-img-wrap">
+    					<img src="{% static 'images/hero-car.png' %}" class="img-fluid" alt="Carro no estacionamento">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim Página Inicial -->
+
+	<!-- Seção: Por que escolher -->
+	<div class="why-choose-section" style="margin-top: 30px;">
+		<div class="container">
+			<div class="row justify-content-between">
+				<div class="col-lg-6">
+					<h2 class="section-title">Por que escolher o MyParking?</h2>
+					<p>No MyParking, transformamos sua rotina com um estacionamento que combina praticidade,
+						tecnologia e segurança. Aqui, seu veículo está protegido, seu tempo é valorizado e cada
+						detalhe é pensado para simplificar seu dia a dia.</p>
+
+					<div class="row my-5">
+						<div class="col-6 col-md-6">
+							<div class="feature">
+								<div class="icon">
+									<img src="{% static 'images/shield.svg' %}" alt="Segurança" class="img-fluid">
+								</div>
+								<h3>Segurança Garantida</h3>
+								<p>Vigilância ativa e tecnologia de ponta para garantir a segurança do seu veículo durante toda a estadia.</p>
+							</div>
+						</div>
+
+						<div class="col-6 col-md-6">
+							<div class="feature">
+								<div class="icon">
+									<img src="{% static 'images/return.svg' %}" alt="Acesso" class="img-fluid">
+								</div>
+								<h3>Acesso Rápido e Fácil</h3>
+								<p>Entrada e saída rápidas com sistema automatizado e vagas garantidas para mensalistas.</p>
+							</div>
+						</div>
+
+						<div class="col-6 col-md-6">
+							<div class="feature">
+								<div class="icon">
+									<img src="{% static 'images/support.svg' %}" alt="App" class="img-fluid">
+								</div>
+								<h3>App Integrado</h3>
+								<p>Acompanhe suas entradas e saídas, pagamentos e disponibilidade de vagas diretamente do celular.</p>
+							</div>
+						</div>
+
+						<div class="col-6 col-md-6">
+							<div class="feature">
+								<div class="icon">
+									<img src="{% static 'images/wallet2.svg' %}" alt="Pagamentos" class="img-fluid">
+								</div>
+								<h3>Pagamentos Digitais</h3>
+								<p>Aceitamos Pix, cartão de crédito e débito, tudo sem complicações.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Fim Seção: Por que escolher -->
+{% endblock %}

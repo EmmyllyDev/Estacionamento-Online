@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Criar Conta - MyParking{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/custom-login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100 py-4">
+    <div class="card shadow-lg p-4 p-md-5 login-box-custom"> 
+        <div class="card-body text-center"> 
+            <h1 class="card-title fw-bold text-primary mb-2">Crie sua conta MyParking</h1>
+            <p class="card-subtitle text-muted mb-4">É rápido e fácil!</p>
+
+            <form method="POST" class="needs-validation" novalidate>
+                {% csrf_token %}
+                
+                <div class="mb-3"> 
+                    <label for="{{ form.username.id_for_label }}" class="form-label d-block text-center mb-2">
+                        <i class="fas fa-user me-2"></i> Usuário
+                    </label>
+                    <div class="d-flex justify-content-center"> 
+                        <input type="text" class="form-control form-control-lg w-75 text-center" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}" placeholder="Nome de usuário" required>
+                    </div>
+                    {% if form.username.help_text %}
+                        <div class="form-text text-center text-muted">
+                            {{ form.username.help_text }}
+                        </div>
+                    {% endif %}
+                    {% if form.username.errors %}
+                        <div class="invalid-feedback d-block text-center">
+                            {% for error in form.username.errors %}{{ error }}{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.email.id_for_label }}" class="form-label d-block text-center mb-2">
+                        <i class="fas fa-envelope me-2"></i> E-mail
+                    </label>
+                    <div class="d-flex justify-content-center">
+                        <input type="email" class="form-control form-control-lg w-75 text-center" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}" placeholder="Seu melhor e-mail" required>
+                    </div>
+                    {% if form.email.help_text %}
+                        <div class="form-text text-center text-muted">
+                            {{ form.email.help_text }}
+                        </div>
+                    {% endif %}
+                    {% if form.email.errors %}
+                        <div class="invalid-feedback d-block text-center">
+                            {% for error in form.email.errors %}{{ error }}{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.telefone.id_for_label }}" class="form-label d-block text-center mb-2">
+                        <i class="fas fa-phone me-2"></i> Telefone
+                    </label>
+                    <div class="d-flex justify-content-center">
+                        <input type="text" class="form-control form-control-lg w-75 text-center" name="{{ form.telefone.name }}" id="{{ form.telefone.id_for_label }}" placeholder="(XX) XXXXX-XXXX" required>
+                    </div>
+                    {% if form.telefone.help_text %}
+                        <div class="form-text text-center text-muted">
+                            {{ form.telefone.help_text }}
+                        </div>
+                    {% endif %}
+                    {% if form.telefone.errors %}
+                        <div class="invalid-feedback d-block text-center">
+                            {% for error in form.telefone.errors %}{{ error }}{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                {# Campo de CPF #}
+                <div class="mb-3">
+                    <label for="{{ form.cpf.id_for_label }}" class="form-label d-block text-center mb-2">
+                        <i class="fas fa-id-card me-2"></i> CPF
+                    </label>
+                    <div class="d-flex justify-content-center">
+                        <input type="text" class="form-control form-control-lg w-75 text-center" name="{{ form.cpf.name }}" id="{{ form.cpf.id_for_label }}" placeholder="XXX.XXX.XXX-XX" required>
+                    </div>
+                    {% if form.cpf.help_text %}
+                        <div class="form-text text-center text-muted">
+                            {{ form.cpf.help_text }}
+                        </div>
+                    {% endif %}
+                    {% if form.cpf.errors %}
+                        <div class="invalid-feedback d-block text-center">
+                            {% for error in form.cpf.errors %}{{ error }}{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                {# Campo de Senha 1 #}
+                <div class="mb-3">
+                    <label for="{{ form.password1.id_for_label }}" class="form-label d-block text-center mb-2">
+                        <i class="fas fa-lock me-2"></i> Senha
+                    </label>
+                    <div class="d-flex justify-content-center">
+                        <input type="password" class="form-control form-control-lg w-75 text-center" name="{{ form.password1.name }}" id="{{ form.password1.id_for_label }}" placeholder="Sua senha secreta" required>
+                    </div>
+                    {% if form.password1.help_text %}
+                        <div class="form-text text-center text-muted">
+                            {{ form.password1.help_text }}
+                        </div>
+                    {% endif %}
+                    {% if form.password1.errors %}
+                        <div class="invalid-feedback d-block text-center">
+                            {% for error in form.password1.errors %}{{ error }}{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                {# Campo de Senha 2 (Confirmação) #}
+                <div class="mb-3">
+                    <label for="{{ form.password2.id_for_label }}" class="form-label d-block text-center mb-2">
+                        <i class="fas fa-lock me-2"></i> Confirme a Senha
+                    </label>
+                    <div class="d-flex justify-content-center">
+                        <input type="password" class="form-control form-control-lg w-75 text-center" name="{{ form.password2.name }}" id="{{ form.password2.id_for_label }}" placeholder="Confirme sua senha" required>
+                    </div>
+                    {% if form.password2.help_text %}
+                        <div class="form-text text-center text-muted">
+                            {{ form.password2.help_text }}
+                        </div>
+                    {% endif %}
+                    {% if form.password2.errors %}
+                        <div class="invalid-feedback d-block text-center">
+                            {% for error in form.password2.errors %}{{ error }}{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                {# Botão Registrar #}
+                <div class="d-flex justify-content-center mt-4"> {# Flexbox para centralizar o botão #}
+                    <button type="submit" class="btn btn-primary btn-lg w-75 fw-bold custom-btn-primary">Registrar</button>
+                </div>
+            </form>
+
+            <p class="text-muted mt-3">
+                Já tem uma conta? <a href="{% url 'login' %}" class="text-decoration-none text-primary fw-bold">Faça login aqui!</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+{% endblock %}

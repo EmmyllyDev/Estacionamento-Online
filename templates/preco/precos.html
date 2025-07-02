@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nossos Preços - MyParking{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pricing.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container pricing-table-container mb-5 d-flex flex-column align-items-center text-center">
+    <div class="pricing-header mb-4">
+        <h1>Escolha o plano ideal para você</h1>
+        <p>No MyParking, temos opções flexíveis para atender a todas as suas necessidades de estacionamento. Seja um mensalista ou pague apenas quando precisar!</p>
+    </div>
+
+    <ul class="nav nav-pills mb-5" id="pricingTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="mensalistas-tab" data-bs-toggle="pill" data-bs-target="#mensalistas" type="button" role="tab" aria-controls="mensalistas" aria-selected="true">Mensalistas</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="avulsos-tab" data-bs-toggle="pill" data-bs-target="#avulsos" type="button" role="tab" aria-controls="avulsos" aria-selected="false">Avulsos</button>
+        </li>
+    </ul>
+
+    <div class="tab-content w-100" id="pricingTabsContent">
+        <!-- Planos Mensalistas -->
+        <div class="tab-pane fade show active" id="mensalistas" role="tabpanel" aria-labelledby="mensalistas-tab">
+            <div class="row justify-content-center g-4">
+                <!-- Plano Essencial -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card pricing-card">
+                        <div class="card-header text-center">Plano Essencial</div>
+                        <div class="card-body">
+                            <h2>R$ 100<small>/mês</small></h2>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Vaga fixa garantida</li>
+                                <li><i class="fas fa-check-circle"></i> Acesso em horário comercial</li>
+                                <li><i class="fas fa-check-circle"></i> Monitoramento 24h</li>
+                                <li><i class="fas fa-times-circle" style="color:#dc3545;"></i> Descontos</li>
+                                <li><i class="fas fa-times-circle" style="color:#dc3545;"></i> Suporte prioritário</li>
+                            </ul>
+                            <a href="{% url 'planos:solicitar_plano' %}" class="btn btn-primary-custom w-100">Contratar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plano Flex -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card pricing-card">
+                        <div class="card-header text-center">Plano Flex</div>
+                        <div class="card-body">
+                            <h2>R$ 150<small>/mês</small></h2>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Vaga fixa garantida</li>
+                                <li><i class="fas fa-check-circle"></i> Acesso 24/7</li>
+                                <li><i class="fas fa-check-circle"></i> Monitoramento 24h</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>10% OFF</strong> pagando antes do vencimento</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Suporte pelo WhatsApp prioritário</strong></li>
+                            </ul>
+                            <a href="{% url 'planos:solicitar_plano' %}" class="btn btn-outline-primary-custom w-100">Contratar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Planos Avulsos -->
+        <div class="tab-pane fade" id="avulsos" role="tabpanel" aria-labelledby="avulsos-tab">
+            <div class="row justify-content-center g-4">
+                <!-- Por Hora -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card pricing-card">
+                        <div class="card-header text-center">Por Hora</div>
+                        <div class="card-body">
+                            <h2>R$ 10<small>/hora</small></h2>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Primeira hora cheia</li>
+                                <li><i class="fas fa-check-circle"></i> Fração de 30 min: R$ 5</li>
+                                <li><i class="fas fa-check-circle"></i> Monitoramento 24h</li>
+                                <li><i class="fas fa-check-circle"></i> Vagas rotativas</li>
+                                <li><i class="fas fa-times-circle" style="color:#dc3545;"></i> Sem reserva antecipada</li>
+                            </ul>
+                            <a href="{% url 'vagas:lista_vagas' %}" class="btn btn-primary-custom w-100">Estacionar Agora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diária -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card pricing-card card-highlight">
+                        <div class="card-header text-center">Diária</div>
+                        <div class="card-body">
+                            <h2>R$ 60<small>/dia</small></h2>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Válido por 24h</li>
+                                <li><i class="fas fa-check-circle"></i> Ideal para longas estadias</li>
+                                <li><i class="fas fa-check-circle"></i> Monitoramento 24h</li>
+                                <li><i class="fas fa-check-circle"></i> Vagas rotativas</li>
+                                <li><i class="fas fa-check-circle"></i> Reserva online disponível</li>
+                            </ul>
+                            <a href="{% url 'reservar' %}" class="btn btn-primary-custom w-100">Reservar Diária</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

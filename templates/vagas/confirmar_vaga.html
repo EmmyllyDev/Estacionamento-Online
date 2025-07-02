@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Confirmar Reserva</h2>
+
+  <p><strong>Vagas selecionadas:</strong> {{ vagas }}</p>
+
+  <form method="POST" action="{% url 'vagas:confirmar_vaga' %}">
+    {% csrf_token %}
+    <input type="hidden" name="vagas" value="{{ vagas }}">
+
+    <div class="mb-3">
+      <label class="form-label">Tipo de cobrança:</label>
+      <select name="tipo_cobranca" class="form-select" required id="tipo_cobranca" onchange="toggleHorarios()">
+        <option value="" disabled {% if not tipo_cobranca %}selected{% endif %}>Selecione</option>
+        <option value="hora" {% if tipo_cobranca == 'hora' %}selected{% endif %}>Por Hora</option>
+        <option value="diaria" {% if tipo_cobranca == 'diaria' %}selected{% endif %}>Diária</option>
+      </select>
+    </div>
+
+    <div id="horarios" style="display:none;">
+      <div class="mb-3">
+        <label for="entrada" class="form-label">Horário de Entrada:</label>
+        <input type="datetime-local" id="entrada" name="entrada" class="form-control" value="{{ entrada|default:'' }}">
+      </div>
+
+      <div class="mb-3">
+        <label for="saida" class="form-label">Horário de Saída:</label>
+        <input type="datetime-local" id="saida" name="saida" class="form-control" value="{{ saida|default:'' }}">
+      </div>
+    </div>
+
+    <a href="{% url 'vagas:lista_vagas' %}" class="btn btn-secondary me-2">Voltar</a>
+    <button type="submit" class="btn btn-primary">Continuar</button>
+  </form>
+</div>
+
+<script>
+function toggleHorarios() {
+    const tipo = document.getElementById('tipo_cobranca').value;
+    const horariosDiv = document.getElementById('horarios');
+    if (tipo === 'hora') {
+        horariosDiv.style.display = 'block';
+        document.getElementById('entrada').required = true;
+        document.getElementById('saida').required = true;
+    } else {
+        horariosDiv.style.display = 'none';
+        document.getElementById('entrada').required = false;
+        document.getElementById('saida').required = false;
+    }
+}
+
+document.querySelector('form').addEventListener('submit', function(e) {
+  const tipo = document.getElementById('tipo_cobranca').value;
+  if (!tipo) {
+    e.preventDefault();
+    alert('Por favor, selecione o tipo de cobrança.');
+    document.getElementById('tipo_cobranca').focus();
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  toggleHorarios();
+});
+</script>
+{% endblock %}

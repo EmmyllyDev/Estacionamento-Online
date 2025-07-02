@@ -1,0 +1,46 @@
+{% load static %}		
+<footer class="footer-section">
+  <div class="container">
+
+    <div class="row align-items-center">
+      <!-- Lado esquerdo: logo, texto e redes sociais -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="footer-logo-wrap mb-3">
+          <a href="#" class="footer-logo">MyParking<span>.</span></a>
+        </div>
+        <p>No MyParking, você encontra praticidade, segurança e controle total sobre sua vaga. Reserve com antecedência, escolha o plano ideal e conte com nosso suporte.</p>
+        <ul class="list-unstyled custom-social d-flex gap-3 mt-3">
+          <li><a href="https://www.facebook.com/emmylly.maria"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+          <li><a href="https://x.com/MariaEmmylly"><span class="fa fa-brands fa-twitter"></span></a></li>
+          <li><a href="https://www.instagram.com/emmylly__oliveira/"><span class="fa fa-brands fa-instagram"></span></a></li>
+          <li><a href="https://www.linkedin.com/in/emmylly-oliveira-1147a2196/"><span class="fa fa-brands fa-linkedin"></span></a></li>
+        </ul>
+      </div>
+
+      <!-- Lado direito: formulário de inscrição por email -->
+      <div class="col-lg-6">
+        <div class="subscription-form">
+          <h3 class="d-flex align-items-center mb-3">
+            <span class="me-2"><img src="{% static 'images/envelope-outline.svg' %}" alt="Envelope" class="img-fluid" style="width:24px;"></span>
+            <span>Receba atualizações por e-mail</span>
+          </h3>
+
+          <form action="#" class="d-flex gap-2">
+            <input type="text" class="form-control" placeholder="Seu nome" style="max-width: 150px;">
+            <input type="email" class="form-control" placeholder="Seu e-mail" style="max-width: 250px;">
+            <button class="btn btn-primary" type="submit">
+              <span class="fa fa-paper-plane"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-top mt-5 pt-3">
+      <p class="mb-0 text-center text-lg-start">
+        &copy; <script>document.write(new Date().getFullYear());</script> MyParking. Todos os direitos reservados.
+      </p>
+    </div>
+
+  </div>
+</footer>

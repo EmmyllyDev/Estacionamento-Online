@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5 text-center">
+  <h2 class="mb-3 text-success">Pagamento Confirmado!</h2>
+
+  <p>Seu plano <strong>{{ pedido.plano.nome }}</strong> foi ativado com sucesso.</p>
+  <p>Data de vencimento: <strong>{{ pedido.data_vencimento }}</strong></p>
+
+  <a href="{% url 'home' %}" class="btn btn-primary mt-4">Voltar para o Início</a>
+</div>
+{% endblock %}

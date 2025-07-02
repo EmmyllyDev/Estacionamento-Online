@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Meu Perfil</h2>
+  <hr>
+  <a href="{% url 'editar_perfil' %}" class="btn btn-primary mb-3">Editar Perfil</a>
+
+  <p><strong>Nome:</strong> {{ user.get_full_name|default:user.username }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Usuário:</strong> {{ user.username }}</p>
+
+  {% if cliente.tipo == 'mensalista' and mensalista %}
+    <h3>Plano Mensalista</h3>
+    <hr>
+    <ul>
+      <li><strong>Plano contratado:</strong> {{ mensalista.plano.nome }}</li>
+      <li><strong>Vaga vinculada:</strong> Vaga {{ mensalista.vaga.numero }}</li>
+      <li><strong>Contrato ativo desde:</strong> {{ mensalista.data_inicio|date:"d/m/Y" }}</li>
+      <li><strong>Data de vencimento:</strong> {{ mensalista.data_vencimento|date:"d/m/Y" }}</li>
+    </ul>
+
+    <h4>Histórico de Pagamentos</h4>
+    {% if pedido %}
+      <hr>
+      <ul>
+        <li><strong>Data do pagamento:</strong> {{ pedido.data_pedido|date:"d/m/Y H:i" }}</li>
+        <li><strong>Forma de pagamento:</strong> {{ pedido.forma_pagamento }}</li>
+        <li><strong>Valor pago:</strong> R$ {{ pedido.plano.valor }}</li>
+      </ul>
+    {% else %}
+      <p>Nenhum pagamento registrado.</p>
+    {% endif %}
+
+    <form method="post" onsubmit="return confirm('Deseja cancelar o plano e voltar a ser avulso?');" class="mt-3">
+      {% csrf_token %}
+      <button type="submit" name="cancelar" class="btn btn-danger">Cancelar Plano</button>
+    </form>
+  {% else %}
+    <p class="mt-4">Você não possui um plano ativo ainda.</p>
+  {% endif %}
+
+  <h3 class="mt-5">Minhas Reservas</h3>
+  {% if reservas %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Vaga</th>
+          <th>Data Prevista</th>
+          <th>Hora Entrada</th>
+          <th>Hora Saída</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for reserva in reservas %}
+          <tr>
+            <td>{{ reserva.id }}</td>
+            <td>Vaga {{ reserva.vaga.numero }}</td>
+            <td>{{ reserva.data_prevista|date:"d/m/Y" }}</td>
+            <td>{{ reserva.hora_entrada }}</td>
+            <td>{{ reserva.hora_saida }}</td>
+            <td>{% if reserva.pago %}Pago{% else %}Pendente{% endif %}</td>
+            <td>
+              <form method="post" action="{% url 'cancelar_reserva' reserva.id %}" onsubmit="return confirm('Confirma cancelamento da reserva?');">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-danger">Cancelar</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Você não possui reservas feitas.</p>
+  {% endif %}
+
+  <h3 class="mt-5">Entradas de Veículos</h3>
+  {% if entradas %}
+    <ul>
+      {% for entrada in entradas %}
+        <li>Vaga {{ entrada.vaga.numero }} - Entrada em {{ entrada.data_entrada|date:"d/m/Y H:i" }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Você não possui registros de entrada.</p>
+  {% endif %}
+
+  <h3 class="mt-5">Saídas de Veículos</h3>
+  {% if saidas %}
+    <ul>
+      {% for saida in saidas %}
+        <li>Vaga {{ saida.vaga.numero }} - Saída em {{ saida.data_saida|date:"d/m/Y H:i" }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Você não possui registros de saída.</p>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  #vagas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .vaga {
+    height: 80px;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 2px solid #ccc;
+    background-color: #ffffff;
+    color: #2f4f4f;
+    cursor: pointer;
+  }
+
+  .vaga.btn-secondary {
+    background-color: #ffffff;
+    color: #2f4f4f;
+    border: 2px solid #2f4f4f;
+  }
+
+  .vaga.btn-warning {
+    background-color: #ffc107;
+    color: #000;
+    border: 2px solid #ffc107;
+  }
+
+  .vaga.btn-dark,
+  .vaga.disabled {
+    background-color: #6c757d;
+    color: #fff;
+    border: 2px solid #6c757d;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .vaga:hover:not(.disabled):not(.btn-warning) {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  #resumo {
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+
+  #btn-continuar {
+    padding: 12px 25px;
+    font-size: 1em;
+    border-radius: 30px;
+  }
+</style>
+
+<div class="container py-4">
+  <h2 class="mb-3">Selecione uma vaga:</h2>
+
+  <div id="vagas-container" class="mb-3"></div>
+
+  <div id="resumo" class="mb-3">
+    Vagas selecionadas: <span id="selecionadas">Nenhuma</span>
+  </div>
+
+  <form method="POST" action="{% url 'vagas:confirmar_vaga' %}">
+    {% csrf_token %}
+    <input type="hidden" name="vagas" id="input-vagas">
+    <button id="btn-continuar" class="btn btn-warning" disabled>Continuar</button>
+  </form>
+</div>
+
+<script>
+  const vagasOcupadas = {{ vagas_ocupadas_json|safe }};
+  const totalVagas = {{ total_vagas_count }};
+  const container = document.getElementById('vagas-container');
+  const selecionadasSpan = document.getElementById('selecionadas');
+  const btnContinuar = document.getElementById('btn-continuar');
+  const inputVagas = document.getElementById('input-vagas');
+  let vagasSelecionadas = [];
+
+  for (let i = 1; i <= totalVagas; i++) {
+    const vaga = document.createElement('div');
+    vaga.textContent = i;
+    vaga.className = 'vaga btn btn-sm btn-secondary';
+
+    if (vagasOcupadas.includes(i)) {
+      vaga.classList.add('disabled', 'btn-dark');
+    } else {
+      vaga.addEventListener('click', () => toggleVaga(i, vaga));
+    }
+
+    container.appendChild(vaga);
+  }
+
+  function toggleVaga(num, elemento) {
+    if (vagasSelecionadas.includes(num)) {
+      vagasSelecionadas = vagasSelecionadas.filter(v => v !== num);
+      elemento.classList.remove('btn-warning');
+      elemento.classList.add('btn-secondary');
+    } else {
+      vagasSelecionadas.push(num);
+      elemento.classList.remove('btn-secondary');
+      elemento.classList.add('btn-warning');
+    }
+    atualizarResumo();
+  }
+
+  function atualizarResumo() {
+    if (vagasSelecionadas.length === 0) {
+      selecionadasSpan.textContent = 'Nenhuma';
+      btnContinuar.disabled = true;
+    } else {
+      selecionadasSpan.textContent = vagasSelecionadas.join(', ');
+      inputVagas.value = vagasSelecionadas.join(',');
+      btnContinuar.disabled = false;
+    }
+  }
+</script>
+{% endblock %}

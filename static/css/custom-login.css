@@ -1,0 +1,178 @@
+/* Fundo customizado (Bootstrap não tem gradiente por padrão) */
+.bg-gradient-blue {
+    background: linear-gradient(to right, #001f3f, #003366);
+}
+
+/* Ajustes para o card de login */
+.login-box-custom {
+    max-width: 380px; /* <<< REDUZINDO A LARGURA MÁXIMA AQUI (era 450px) */
+    border-radius: 12px; /* Bordas arredondadas */
+    /* Box shadow é adicionado pelo Bootstrap, mas pode ser customizado */
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); */
+}
+
+/* Ajustes para o card de e-mail (se ainda for usar) */
+.email-box-custom {
+    max-width: 380px; /* <<< REDUZINDO A LARGURA MÁXIMA AQUI (era 450px) */
+    border-radius: 12px;
+}
+
+/* Títulos e subtítulos (já estão bem tratados pelo Bootstrap com fw-bold, etc.) */
+.text-primary { /* Bootstrap primary color */
+    color: #003366 !important; /* Cor mais escura para o título, se desejar */
+}
+
+/* Botão de login customizado (se quiser cor diferente da primary do Bootstrap) */
+.custom-btn-primary {
+    background-color: #003366;
+    border-color: #003366;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-btn-primary:hover {
+    background-color: #001f3f;
+    border-color: #001f3f;
+    transform: translateY(-2px);
+}
+
+/* Botões sociais customizados */
+.custom-btn-google {
+    color: #ea4335 !important;
+    border-color: #ea4335 !important;
+}
+.custom-btn-google:hover {
+    background-color: #ea4335 !important;
+    color: white !important;
+}
+
+.custom-btn-facebook {
+    color: #4267B2 !important;
+    border-color: #4267B2 !important;
+}
+.custom-btn-facebook:hover {
+    background-color: #4267B2 !important;
+    color: white !important;
+}
+
+/* Botão de e-mail customizado */
+.custom-btn-email {
+    background-color: #28a745; /* Verde Bootstrap 'success' */
+    border-color: #28a745;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-btn-email:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Ajustes de fonte (se Poppins não estiver sendo aplicada globalmente) */
+body, .form-control, .btn {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Ajustes para centralizar as labels e inputs dentro do text-start */
+/* Como a imagem mostra as labels acima do input, vamos centralizar as labels e o input em si */
+.mb-3.text-start .form-label {
+    width: 100%; /* Garante que a label ocupe o espaço para text-center funcionar */
+    text-align: center; /* Centraliza o texto da label */
+    display: block; /* Garante que 'text-align' funcione */
+}
+
+.form-control-lg { /* Aplica-se aos inputs maiores */
+    text-align: center; /* Centraliza o texto dentro dos inputs */
+}
+
+/* Para garantir que o botão 'Entrar' e os inputs não fiquem largos demais dentro do card menor */
+.login-box-custom .form-control-lg,
+.login-box-custom .btn-lg.w-100 {
+    max-width: 300px; /* Limita a largura para ser mais compacto */
+    margin-left: auto; /* Centraliza com margens automáticas */
+    margin-right: auto; /* Centraliza com margens automáticas */
+}
+
+/* Para centralizar os botões sociais */
+.d-grid.gap-2 {
+    max-width: 300px; /* Limita a largura dos botões sociais */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Responsividade - Ajuste para telas menores */
+@media (max-width: 576px) { /* Ponto de quebra padrão do Bootstrap para extra small devices */
+    .login-box-custom, .email-box-custom {
+        max-width: 90%; /* Ocupa mais largura em telas muito pequenas */
+        padding: 20px;
+    }
+
+    .form-control-lg, .btn-lg {
+        font-size: 1rem; /* Diminui o tamanho da fonte e padding em telas pequenas */
+        padding: 0.5rem 1rem;
+    }
+}
+
+.login-box-custom {
+    max-width: 380px; /* Largura máxima para o card de login/registro */
+    border-radius: 12px;
+    /* ... outros estilos ... */
+}
+
+/* Ajustes para o formulário */
+.needs-validation {
+    text-align: center; /* Centraliza o conteúdo geral do formulário */
+}
+
+/* Ajustes para os grupos de input (labels, inputs e textos de ajuda) */
+.mb-3.text-start { /* Originalmente era text-start, vamos sobrescrever para centralizar */
+    text-align: center; /* Centraliza o texto e elementos inline-block dentro do mb-3 */
+}
+
+.mb-3.text-start label.form-label {
+    /* Já estava assim, mas reforça */
+    width: 100%;
+    text-align: center; /* Garante que o texto da label seja centralizado */
+    display: block; /* Garante que 'text-align' funcione */
+}
+
+.mb-3.text-start .form-control-lg {
+    /* Para centralizar o input em si e limitar sua largura */
+    display: block; /* Garante que margin: auto funcione */
+    max-width: 300px; /* Define uma largura máxima para o input */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Centraliza o texto digitado dentro do input */
+}
+
+.mb-3.text-start .form-text {
+    /* Para centralizar o texto de ajuda (help_text) */
+    display: block; /* Garante que margin: auto funcione */
+    max-width: 300px; /* Limita a largura para o texto não se espalhar demais */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Centraliza o texto de ajuda */
+    font-size: 0.85em; /* Pode ajustar o tamanho se quiser */
+    color: #6c757d; /* Cor mais suave para o texto de ajuda */
+}
+
+/* Ajustes para mensagens de feedback (erros, etc.) */
+.invalid-feedback.d-block.text-center {
+    display: block !important; /* Assegura que o feedback é visível */
+    text-align: center !important; /* Centraliza o texto de erro */
+    max-width: 300px; /* Limita a largura para a mensagem de erro */
+    margin-left: auto;
+    margin-right: auto;
+    color: #dc3545; /* Cor padrão de erro do Bootstrap */
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+/* Garante que o botão Registrar também esteja centralizado e com largura limitada */
+.custom-btn-primary.mt-4 {
+    max-width: 300px; /* Mesma largura dos inputs para consistência */
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Garante que margin: auto funcione */
+}
+
+/* ... (o resto do seu código CSS abaixo) ... */

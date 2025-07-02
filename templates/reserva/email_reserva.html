@@ -1,0 +1,13 @@
+<h2>Reserva Confirmada</h2>
+<p>Olá {{ usuario.get_full_name|default:usuario.username }},</p>
+
+<p>Sua reserva foi confirmada com sucesso!</p>
+
+<ul>
+  <li><strong>Vaga:</strong> {{ reserva.vaga }}</li>
+  <li><strong>Data e Hora da Reserva:</strong> {{ reserva.data_reserva }}</li>
+  {% if reserva.entrada %}<li><strong>Entrada:</strong> {{ reserva.entrada }}</li>{% endif %}
+  {% if reserva.saida %}<li><strong>Saída:</strong> {{ reserva.saida }}</li>{% endif %}
+</ul>
+
+<p>Obrigado por escolher o MyParking!</p>

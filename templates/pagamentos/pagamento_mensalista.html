@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Pagamento do Plano Mensalista{% endblock %}
+{% block content %}
+<div class="container my-5">
+  <h2 class="text-center mb-4">Pagamento do Plano</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Forma de Pagamento</label>
+      <select name="forma_pagamento" class="form-control" required>
+        <option value="">Selecione</option>
+        <option value="pix">Pix</option>
+        <option value="debito">Débito</option>
+        <option value="credito">Crédito</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success w-100">Confirmar Pagamento</button>
+  </form>
+</div>
+{% endblock %}

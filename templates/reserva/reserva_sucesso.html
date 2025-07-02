@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Reserva Confirmada{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="alert alert-success text-center shadow rounded py-5">
+    <h2 class="mb-4">✅ Reserva Confirmada com Sucesso!</h2>
+    <p class="lead">Obrigado por reservar com o <strong>MyParking</strong>.</p>
+    <p>Você receberá um e-mail com os detalhes da sua reserva.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary mt-4 px-4">Voltar para o Início</a>
+  </div>
+</div>
+{% endblock %}
