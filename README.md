@@ -39,8 +39,7 @@ Este projeto faz parte do meu aprendizado no curso de **Programação Web**, uni
 
 Acesse o projeto completo no GitHub:
 
-🔗 [estacionamentoOnline](https://github.com/seu-usuario/estacionamentoOnline)  
-> *(Substitua pelo seu link real após publicar)*
+🔗 [estacionamentoOnline](https://github.com/EmmyllyDev/Estacionamento-Online)
 
 ---
 
@@ -48,8 +47,7 @@ Acesse o projeto completo no GitHub:
 
 **Emmylly Oliveira**  💚
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue)](https://www.linkedin.com/in/seu-perfil)  
-*(Substitua pelo seu LinkedIn ou outra rede profissional, se desejar)*
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue)](https://www.linkedin.com/in/emmylly-oliveira-1147a2196/))  
 
 ---
 ## 📄 Licença
