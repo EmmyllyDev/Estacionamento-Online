@@ -47,7 +47,7 @@ Acesse o projeto completo no GitHub:
 
 **Emmylly Oliveira**  💚
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue)](https://www.linkedin.com/in/emmylly-oliveira-1147a2196/))  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue)](https://www.linkedin.com/in/emmylly-oliveira-1147a2196/) 
 
 ---
 ## 📄 Licença
