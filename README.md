@@ -6,61 +6,55 @@
 
 ## 🧠 Sobre o Projeto
 
-O **MyParking** é um sistema de estacionamento online desenvolvido com o objetivo de modernizar e facilitar o controle de vagas, permitindo que usuários possam **reservar** antecipadamente, **acompanhar** entradas e saídas e aproveitar **planos mensais**.
+O **MyParking** é um sistema web de gerenciamento de estacionamento, projetado para modernizar a forma como vagas são gerenciadas e utilizadas. A plataforma permite que usuários realizem **reservas de vagas online**, acompanhem **entradas e saídas de veículos**, e ainda contem com **planos mensais** para mais comodidade e economia.
 
-Este projeto está sendo desenvolvido como parte do meu aprendizado no **curso de Programação Web**.
+Este projeto faz parte do meu aprendizado no curso de **Programação Web**, unindo teoria à prática com o uso de tecnologias modernas.
 
 ---
 
-## 🌐 Funcionalidades
+## 🌟 Funcionalidades
 
-- Reserva de vagas online
-- Acompanhamento em tempo real de entradas e saídas
-- Planos mensais para maior praticidade e economia
-- Interface web responsiva e amigável
-- Painel de administração para controle de dados
+- ✅ Reserva online de vagas disponíveis  
+- ✅ Visualização de entradas e saídas de veículos  
+- ✅ Controle e contratação de planos mensais personalizados  
+- ✅ Interface web responsiva e fácil de usar
+- ✅ Aceita pagamento em pix, debito e credito.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Python 3**
-- **Django** – Framework web backend
-- **SQLite** – Banco de dados leve e embutido
-- **HTML5 + CSS3**
-- **JavaScript (básico)** – Para interações dinâmicas
-- **Git/GitHub** – Controle de versão e hospedagem do código
+| Tecnologia        | Descrição                                      |
+|-------------------|-----------------------------------------------|
+| **Python 3**      | Linguagem de programação principal             |
+| **Django**        | Framework web utilizado no backend             |
+| **SQLite**        | Banco de dados leve e fácil de configurar      |
+| **HTML5 & CSS3**  | Estrutura e estilo da interface                |
+| **JavaScript**    | Funcionalidades dinâmicas na interface         |
+| **Git & GitHub**  | Controle de versão e hospedagem do projeto     |
 
 ---
 
 ## 📁 Repositório
 
-Este projeto está disponível no GitHub no repositório:
+Acesse o projeto completo no GitHub:
 
-🔗 [estacionamentoOnline](https://github.com/seu-usuario/estacionamentoOnline)
-
-*(Substitua pelo link real do seu repositório quando publicar)*
-
----
-
-## 👩‍💻 Desenvolvido por
-
-**Emmylly**  
-💚 Apaixonada por tecnologia, inovação e soluções práticas para o dia a dia.
+🔗 [estacionamentoOnline](https://github.com/seu-usuario/estacionamentoOnline)  
+> *(Substitua pelo seu link real após publicar)*
 
 ---
 
-## 📌 Status do Projeto
+## 🧑‍💻 Desenvolvido por
 
-🚧 Em desenvolvimento...  
-Funcionalidades básicas já em construção. Acompanhe o progresso aqui no GitHub!
+**Emmylly Oliveira**  💚
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue)](https://www.linkedin.com/in/seu-perfil)  
+*(Substitua pelo seu LinkedIn ou outra rede profissional, se desejar)*
 
 ---
-
 ## 📄 Licença
 
-Este projeto **não possui uma licença definida no momento**.  
-Sinta-se à vontade para estudar e se inspirar.
+Este projeto ainda **não possui uma licença definida**.  
+Sinta-se à vontade para estudar, se inspirar e contribuir com sugestões!
 
 ---
-
