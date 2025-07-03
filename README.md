@@ -6,7 +6,7 @@
 
 ## 🧠 Sobre o Projeto
 
-O **MyParking** é um sistema de estacionamento online desenvolvido com o objetivo de modernizar e facilitar o controle de vagas, permitindo que usuários possam **reservar** antecipadamente, **acompanhar** entradas e saídas em tempo real e aproveitar **planos mensais acessíveis**.
+O **MyParking** é um sistema de estacionamento online desenvolvido com o objetivo de modernizar e facilitar o controle de vagas, permitindo que usuários possam **reservar** antecipadamente, **acompanhar** entradas e saídas e aproveitar **planos mensais**.
 
 Este projeto está sendo desenvolvido como parte do meu aprendizado no **curso de Programação Web**.
 
