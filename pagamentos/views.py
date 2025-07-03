@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from planos.models import PedidoPlano
+from django.utils.dateparse import parse_datetime
+
 
 def pagamento(request):
     valor_total = request.session.get('valor_total')
@@ -55,18 +57,18 @@ def pagamento(request):
 def recibo(request):
     vagas = request.session.get('vagas')
     entrada = request.session.get('entrada')
-    saida = request.session.get('saida')
-    forma_pagamento = request.session.get('forma_pagamento')
-    valor_total = request.session.get('valor_total')
-    tipo_cobranca = request.session.get('tipo_cobranca')    
+    saida = request.session.get('saida')   
+
+    entrada_dt = parse_datetime(entrada) if entrada else None
+    saida_dt = parse_datetime(saida) if saida else None  
 
     contexto = {
         'vagas': vagas,
-        'entrada': entrada,
-        'saida': saida,
-        'valor_total': valor_total,
-        'forma_pagamento': forma_pagamento,
-        'tipo_cobranca': tipo_cobranca,
+        'entrada': entrada_dt,
+        'saida': saida_dt,
+        'valor_total': request.session.get('valor_total'),
+        'forma_pagamento': request.session.get('forma_pagamento'),
+        'tipo_cobranca': request.session.get('tipo_cobranca'),
     }
 
     return render(request, 'pagamentos/recibo.html', contexto)

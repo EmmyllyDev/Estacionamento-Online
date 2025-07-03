@@ -105,6 +105,7 @@ def confirmar_vaga(request):
         request.session['tipo_cobranca'] = tipo_cobranca
         request.session['entrada'] = entrada_dt.isoformat()
         request.session['saida'] = saida_dt.isoformat()
+        request.session['saida'] = saida_dt.isoformat()
         request.session['valor_total'] = valor_total
 
         return redirect(reverse('pagamentos:pagamento'))
