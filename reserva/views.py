@@ -46,6 +46,5 @@ def cancelar_reserva(request, reserva_id):
     reserva = request.user.reservas.filter(id=reserva_id).first()
     if reserva:
         reserva.delete()
-        return redirect('reservar')
+    return redirect('perfil_usuario')
 
-    

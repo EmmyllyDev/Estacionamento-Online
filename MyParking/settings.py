@@ -120,10 +120,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR /"static"
-STATICFILES_DIRS=['MyParking/static']
+STATIC_URL = '/static/'
 
+# Diretório para onde os arquivos serão coletados no modo produção (usado com collectstatic)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Diretórios onde o Django buscará arquivos estáticos durante o desenvolvimento
+STATICFILES_DIRS = [
+    BASE_DIR / 'MyParking' / 'static',
+]
 # configuração para manutenção de midias (imagens, videos e sons)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /"media"
